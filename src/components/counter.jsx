@@ -63,17 +63,18 @@ class Counter extends Component {
 
         return (
             <React.Fragment>
-                <h3>Counter Component</h3>
-                {this.props.children} @ {this.props.CounId}
-                {/* <img src="{this.state.imgUrl}" alt="" /><br />
+                <div>
+                    <h3>Counter Component</h3>
+                    {this.props.children} @ {this.props.CounId}
+                    {/* <img src="{this.state.imgUrl}" alt="" /><br />
                 <span style={this.styles} className={this.GetClass()}> 1 {this.state.count} </span><br /> */}
-                <span> 2 {this.change()} </span><br />
-                {/* <button onClick={this.handelIncrement} >Increment 1</button>
+                    <span> 2 {this.change()} </span><br />
+                    {/* <button onClick={this.handelIncrement} >Increment 1</button>
                 <button onClick={() => { this.handelIncrement2({ id: 1 }) }} >Increment 2</button> */}
-                <button onClick={this.handelIncrement3} className="btn btn-primary">Increment 3</button>
+                    <button onClick={this.handelIncrement3} className="btn btn-primary">Increment 3</button>
 
-                <h4>Reader list</h4>
-                <ul>
+                    <h4>Reader list</h4>
+
                     {
                         this.state.tags.length === 0 ?
                             <p>thay are no tags</p> :
@@ -85,7 +86,8 @@ class Counter extends Component {
                                 }
                             </ul>
                     }
-                </ul>
+
+                </div>
             </React.Fragment>
         )
     }
