@@ -18,7 +18,13 @@ class counters extends Component {
             <div>
                 {
                     this.state.counters.map(
-                        counters => <Counter key={counters.id} />
+                        counters => <Counter
+                            key={counters.id}
+                            value={counters.value}
+                            CounId={counters.id}
+                        >
+                            <h3>Title</h3>
+                        </Counter>
                     )
                 }
             </div>
