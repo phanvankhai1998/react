@@ -22,6 +22,26 @@ class Counter extends Component {
         return classes;
     }
 
+    RenderTags() {
+        if (this.state.tags.length === 0)
+            return <p>they are no tags</p>;
+        return <ul>
+            {
+                this.state.tags.map(
+                    tag => <li key={tag}>{tag}</li>
+                )
+            }
+        </ul>
+    }
+
+    handelIncrement() {
+        console.log('Increment clicked!');
+    }
+
+    handelIncrement2(arg) {
+        console.log('Increment 2 clicked!', arg);
+    }
+
     render() {
         return (
             <React.Fragment>
@@ -29,14 +49,30 @@ class Counter extends Component {
                 <img src="{this.state.imgUrl}" alt="" /><br />
                 <span style={this.styles} className={this.GetClass()}> 1 {this.state.count} </span><br />
                 <span> 2 {this.change()} </span><br />
-                <button>Increment</button>
+
+                <button onClick={this.handelIncrement} >Increment 1</button>
+                <button onClick={() => { this.handelIncrement2({ id: 1 }) }} >Increment 2</button>
+
+
 
                 <h4>Reader list</h4>
                 <ul>
                     {
-                        this.state.tags.map(
-                            tag => <li key={tag}>{tag}</li>
-                        )
+                        this.state.tags.length === 0 ?
+                            <p>thay are no tags</p> :
+                            <ul>
+                                {
+                                    this.state.tags.map(
+                                        tag => <li key={tag}>{tag}</li>
+                                    )
+                                }
+                            </ul>
+
+                        /* {
+                                    this.state.tags.map(
+                                        tag => <li key={tag}>{tag}</li>
+                                    )
+                                } */
                     }
                 </ul>
             </React.Fragment>
