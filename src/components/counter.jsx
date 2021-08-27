@@ -34,12 +34,26 @@ class Counter extends Component {
         </ul>
     }
 
+    constructor() {
+        super();
+        this.handelIncrement = this.handelIncrement.bind(this)
+        //console.log("Constructor", this)
+    }
+
     handelIncrement() {
-        console.log('Increment clicked!');
+        console.log('Increment clicked!', this);
     }
 
     handelIncrement2(arg) {
         console.log('Increment 2 clicked!', arg);
+    }
+
+    handelIncrement3 = () => {
+        console.log('Increment 3 clicked! NO bind this');
+        //this.state.count++;     // ERROR => Do not mutate state directly. Use setState().
+        this.setState({
+            count: this.state.count + 1
+        })
     }
 
     render() {
@@ -52,8 +66,7 @@ class Counter extends Component {
 
                 <button onClick={this.handelIncrement} >Increment 1</button>
                 <button onClick={() => { this.handelIncrement2({ id: 1 }) }} >Increment 2</button>
-
-
+                <button onClick={this.handelIncrement3} >Increment 3</button>
 
                 <h4>Reader list</h4>
                 <ul>
