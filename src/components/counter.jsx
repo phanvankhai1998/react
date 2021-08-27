@@ -8,7 +8,8 @@ class Counter extends Component {
 
     state = {
         count: 0,
-        imgUrl: 'https://picsum.photos/258'
+        imgUrl: 'https://picsum.photos/258',
+        tags: ["a", "b", "c"]
     };
 
     change() {
@@ -29,6 +30,15 @@ class Counter extends Component {
                 <span style={this.styles} className={this.GetClass()}> 1 {this.state.count} </span><br />
                 <span> 2 {this.change()} </span><br />
                 <button>Increment</button>
+
+                <h4>Reader list</h4>
+                <ul>
+                    {
+                        this.state.tags.map(
+                            tag => <li key={tag}>{tag}</li>
+                        )
+                    }
+                </ul>
             </React.Fragment>
         )
     }
